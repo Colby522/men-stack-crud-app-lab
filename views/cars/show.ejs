@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= car.makeModel %></title>
+  </head>
+  <body>
+    <a href="/cars/">Back to Cars</a>
+    <h1><%= car.makeModel %></h1>
+    <h3><%= car.year %></h3>
+    <h3><%= car.color %></h3>
+    <% if (car.goodCondition) { %>
+        <p>This car is ready to go</p>
+    <% } else { %>
+        <p>This car is not good to drive</p>
+    <% } %>
+    <form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= car.makeModel %></button>
+    </form>
+    <a href="/cars/<%= car._id %>/edit">Edit <%= car.makeModel %></a>
+    </body>
+</html>
+

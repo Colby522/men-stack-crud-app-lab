@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Car</title>
+  </head>
+  <body>
+    <a href="/cars">Browse Cars</a>
+    <h1>Edit <%= car.makeModel %></h1>
+    <form action="/cars/<%= car._id %>?_method=PUT" method="POST">
+      <label for="makeModel">Make and Model:</label>
+      <input type="text" name="makeModel" id="makeModel" value="<%= car.makeModel %>"/>
+
+      <label for="year">Year:</label>
+      <input type="number" name="year" id="year" value="<%= car.year %>"/>
+
+      <label for="color">Color:</label>
+      <input type="text" name="color" id="color" value="<%= car.color %>"/>
+
+      <label for="goodCondition">Good Condition?</label>
+      <input type="checkbox" name="goodCondition" id="goodCondition" <% if (car.goodCondition) { %> checked <% } %>/>
+
+      <button type="submit">Edit Car</button>
+    </form>
+  </body>
+</html>
+  
